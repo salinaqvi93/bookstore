@@ -32,9 +32,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'django.contrib.sites',
     'registration',
     'django.contrib.auth',
-    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -57,8 +57,10 @@ ROOT_URLCONF = 'bookstore.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        #'DIRS': [os.path.join(BASE_DIR, 'store/templates')],
         'DIRS': [],
-        'APP_DIRS': True,
+        #'APP_DIRS': True,
+
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -125,8 +127,10 @@ STATIC_URL = '/static/'
 #Registration
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
-<<<<<<< HEAD
-#LOGIN_REDIRECT_URL = 'store/'
+REGISTRATION_EMAIL_HTML = False
+REGISTRATION_EMAIL_SUBJECT_PREFIX = '[Django Registration Test App]'
+#<<<<<<< HEAD
+LOGIN_REDIRECT_URL = '/store/'
 
 #Email Settings
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -136,6 +140,4 @@ EMAIL_HOST_PASSWORD = "y5zz8yxT"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "booksMysterybooks.com"
-=======
-LOGIN_REDIRECT_URL = 'store/'
->>>>>>> ali
+

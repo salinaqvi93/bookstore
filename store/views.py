@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
 from.models import Book
 
@@ -11,4 +12,10 @@ def store(request):
     context = {
         'count': count
     }
+    request.session['location'] = "unknown"
+    if request.user.is_authenticated:
+        request.session['location'] = "Earth"
     return render(request, 'store.html', context)
+
+class RegistrationCompleteView(TemplateView):
+    template_name = "registration_complete.html"
