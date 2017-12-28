@@ -125,6 +125,7 @@ STATIC_URL = '/static/'
 #Registration
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
+<<<<<<< HEAD
 #LOGIN_REDIRECT_URL = 'store/'
 
 #Email Settings
@@ -135,3 +136,6 @@ EMAIL_HOST_PASSWORD = "y5zz8yxT"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "booksMysterybooks.com"
+=======
+LOGIN_REDIRECT_URL = 'store/'
+>>>>>>> ali
