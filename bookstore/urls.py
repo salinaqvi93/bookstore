@@ -23,4 +23,6 @@ urlpatterns = [
     #path('', RegistrationCompleteView.index, name='index'),
     path('store/', include('store.urls'), name='store'),
     path('accounts/', include('registration.backends.default.urls')),
+    #path('', include('social.apps.django_app.urls', namespace='social')),\
+    path('oauth/', include('social_django.urls', namespace='social')),
 ]

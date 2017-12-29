@@ -31,7 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'social_django',
     'store',
+    #'social.apps.django_app.default',
     'django.contrib.admin',
     'django.contrib.sites',
     'registration',
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'bookstore.urls'
@@ -67,12 +70,24 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #'social.apps.django_app.context_processors.backends',
+                #'social.apps.django_app.context_processors.login_redirect',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'bookstore.wsgi.application'
+
+AUTHENTICATION_BACKENDS =(
+    #'social.backends.facebook.FacebookOAuth2',
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 
 # Database
@@ -142,3 +157,14 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "booksMysterybooks.com"
 
+#Social Auth - Facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '1711862708836130'
+SOCIAL_AUTH_FACEBOOK_SECRET = '9c325c88501240211f239ca0d9386f24'
+
+#Social Auth - GitHub
+SOCIAL_AUTH_GITHUB_KEY = '57066bacc3c78840d5ca'
+SOCIAL_AUTH_GITHUB_SECRET = '4b18ba99cdad3d508468770b06976a7f7ab1ef36'
+
+#Social Auth - Google
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '530563263535-rgk1gcv1o3fi3bjlpjk98krvhllgrngm.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Y42QPLOJ3ky2_8CjdTsYoiIS'

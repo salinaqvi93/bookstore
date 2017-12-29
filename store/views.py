@@ -15,6 +15,9 @@ def store(request):
     request.session['location'] = "unknown"
     if request.user.is_authenticated:
         request.session['location'] = "Earth"
+    else :
+        print('user is false')
+    print('redirecting...')
     return render(request, 'store.html', context)
 
 class RegistrationCompleteView(TemplateView):
