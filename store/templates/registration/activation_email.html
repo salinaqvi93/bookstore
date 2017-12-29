@@ -1,0 +1,33 @@
+{% load i18n %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>{{ site.name }} {% trans "registration" %}</title>
+</head>
+
+<body>
+<p>
+    Greetings,
+</p>
+<p>
+    {% blocktrans with site_name=site.name %}
+    You just signed up for an account at {{ site.name }}. Please click the link below to activate it:
+    {% endblocktrans %}
+</p>
+<p>
+    <a href="http://{{site.domain}}:8000{% url 'registration_activate' activation_key %}">
+        {{site.domain}}:8000{% url 'registration_activate' activation_key %}
+    </a>
+</p>
+
+<p>
+    This link is valid for {{ expiration_days }}. If you did not sign up for this, please ignore.
+</p>
+<p>
+    {% blocktrans with site_name=site.name %}
+    Sincerely,<br/>
+    -Mystery Books Team
+    {% endblocktrans %}
+</p>
+</body>

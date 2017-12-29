@@ -128,7 +128,8 @@ STATIC_URL = '/static/'
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 REGISTRATION_EMAIL_HTML = False
-REGISTRATION_EMAIL_SUBJECT_PREFIX = '[Django Registration Test App]'
+REGISTRATION_EMAIL_SUBJECT_PREFIX = 'Bookstore Registration'
+ACTIVATION_EMAIL_SUBJECT = 'registration/activation_email_subject.txt/'
 #<<<<<<< HEAD
 LOGIN_REDIRECT_URL = '/store/'
 
